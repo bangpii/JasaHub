@@ -2,11 +2,26 @@ import React from 'react';
 import "../css/index.css";
 import Header from "../components/Header";
 import Hero from '../components/Hero';
+import AboutHeader from '../components/AboutHeader';
+import About from '../components/About';
+import JasaHeader from '../components/JasaHeader';
+import Jasa from '../components/Jasa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const User = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    })
+  })
+
   return (
     <div>
-      <img className='absolute top-0 right-0 opacity-60-z-10'
+      <img className='absolute top-0 right-0 opacity-60 -z-10'
       src="/gradient.png" alt="Background" />
 
       {/* Aura */}
@@ -14,7 +29,23 @@ const User = () => {
       
 
       <Header/>
-      <Hero/>
+
+      {/* Section Home */}
+      <section id="home">
+        <Hero />
+      </section>
+
+      {/* Section About */}
+      <section id="about">
+        <AboutHeader />
+        <About />
+      </section>
+
+      {/* Section Jasa */}
+      <section id="jasa">
+        <JasaHeader />
+        <Jasa />
+      </section>
     </div>
   );
 };

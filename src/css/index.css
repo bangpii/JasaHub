@@ -7,4 +7,10 @@
     body {
         @apply bg-black text-white relative font-anton h-screen overflow-x-hidden;
     }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
 }
+
