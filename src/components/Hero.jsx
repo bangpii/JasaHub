@@ -68,10 +68,9 @@ const Hero = () => {
       </div>
 
       {/* 3D Animation */}
-      <Spline 
-        className="absolute lg:top-0 top-[-20%] bottom-0 lg:left-[25%] sm:left-[-2%] h-full"
-        scene="https://prod.spline.design/ov9z4hT74xrtQhSg/scene.splinecode" 
-      />
+       <Spline
+       className="absolute lg:top-0 top-[-20%] bottom-0 lg:left-[25%] sm:left-[-2%] h-full"
+       scene="https://prod.spline.design/ov9z4hT74xrtQhSg/scene.splinecode" />
     </main>
   );
 };

@@ -1,0 +1,8 @@
+| Komponen              | Perlu di-hosting?           | Fungsi                |
+| --------------------- | ----------------------------| --------------------- |
+| **React (Frontend)**  |  Vercel                     | UI UX user            |
+| **Node.js (Backend)** |  Render                     | API dan koneksi DB    |
+| **MySQL (Database)**  |  Clever Cloud / PlanetScale | Database Online       |
+
+Link PlanetScale : https://app.planetscale.com/new
+Link Render      : https://dashboard.render.com/web/new
