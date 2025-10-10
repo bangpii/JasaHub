@@ -87,9 +87,12 @@ const RoomChat = () => {
        {/* ===== Gagang Pintu ===== */}
         <div
         onClick={() => setOpen(!open)}
-        className={`absolute left-0 top-1/2 -translate-x-full -translate-y-1/2 bg-[#f49827] text-white w-10 h-14 rounded-l-2xl shadow-lg cursor-pointer transition-all duration-300 flex items-center justify-center filter blur-[1px] hover:blur-0 ${
-            open ? "translate-x-0" : "translate-x-[calc(-100%+0.5rem)]"
-        }`}
+        className={`flex fixed top-1/2 -translate-y-1/2 bg-[#f49827] text-white w-10 h-14 rounded-l-2xl shadow-lg cursor-pointer transition-all duration-300 items-center justify-center filter blur-[1px] hover:blur-0 z-[101] ${
+  open
+    ? "right-[20rem] sm:right-[20rem] md:right-[23rem] lg:right-[25rem] xl:right-[27rem]" // posisi di luar chatbox
+    : "right-0"
+}`}
+
         >
         <i className="bx bxs-chat text-2xl text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></i>
         </div>

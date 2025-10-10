@@ -144,7 +144,7 @@ useEffect(() => {
       {/* 🔹 Spline di tengah */}
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="w-[130%] h-[130%] md:w-[120%] md:h-[120%] sm:w-[110%] sm:h-[110%]">
-          <Spline scene="https://prod.spline.design/OgGcVgPFvhwzueEz/scene.splinecode" />
+          {/* <Spline scene="https://prod.spline.design/OgGcVgPFvhwzueEz/scene.splinecode" /> */}
         </div>
       </div>
 
