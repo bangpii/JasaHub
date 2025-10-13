@@ -58,8 +58,11 @@ const User = () => {
       <div className="absolute bottom-0 left-0 w-full h-[3.5rem] bg-black z-[90]"></div>
     </div>
 
-      <ContactHeader/>
-      <Contact/>
+      <section id='contact'>
+        <ContactHeader/>
+        <Contact/>
+      </section>
+
       <Footer/>
     </div>
   );

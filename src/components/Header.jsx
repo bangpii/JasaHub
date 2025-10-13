@@ -43,7 +43,7 @@ const Header = () => {
 
                 <a data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1300"
                    className="font-poppins text-base tracking-wider transition-colors hover:text-[#f49827] z-50"
-                   href="#">Contact</a>
+                   href="#contact">Contact</a>
             </nav>
 
             {/* Button SIGNIN */}
@@ -75,7 +75,7 @@ const Header = () => {
                      href="#jasa">Jasa</a>
 
                     <a className="font-poppins w-fit text-base tracking-wider transition-colors hover:text-[#f49827] z-50 cursor-pointer"
-                     href="#">Contact</a>
+                     href="#contact">Contact</a>
                 </nav>
             </div>
 
