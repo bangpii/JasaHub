@@ -3,6 +3,7 @@ import HeaderAdmin from "../components/admin/HeaderAdmin";
 import NavKiri from "../components/admin/NavKiri";
 import TotalDashboard from "../components/admin/TotalDashboard";
 import UsersandGrafik from "../components/admin/UsersandGrafik";
+import Layanan from "../components/admin/layanan";
 
 const Admin = () => {
   const [activePage, setActivePage] = useState("Dashboard");
@@ -22,11 +23,8 @@ const Admin = () => {
         );
       case "Layanan":
         return (
-          <div className="p-5 bg-[#0c0c0c] rounded-2xl">
-            <h2 className="text-3xl font-antonio text-[#f49827] mb-3">
-              Halaman Layanan
-            </h2>
-            <p className="text-gray-300">Konten layanan akan muncul di sini.</p>
+          <div className="rounded-2xl">
+            <Layanan/>
           </div>
         );
       case "Pengguna":
