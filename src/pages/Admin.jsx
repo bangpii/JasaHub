@@ -3,7 +3,7 @@ import HeaderAdmin from "../components/admin/HeaderAdmin";
 import NavKiri from "../components/admin/NavKiri";
 import TotalDashboard from "../components/admin/TotalDashboard";
 import UsersandGrafik from "../components/admin/UsersandGrafik";
-import Layanan from "../components/admin/layanan";
+import Layanan from "../components/admin/Layanan";
 
 const Admin = () => {
   const [activePage, setActivePage] = useState("Dashboard");
