@@ -3,12 +3,12 @@ import 'boxicons/css/boxicons.min.css';
 import Login from './Login'; 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import { useAuth } from '../context/AuthContext';
 
 const Header = () => {
     const [openLogin, setOpenLogin] = useState(false);
+    const { isAuthenticated, logout } = useAuth();
     
-    // toggle menu
     const toggleMobileMenu = () => {
         const mobileMenu = document.getElementById('mobileMenu');
         if(mobileMenu.classList.contains('hidden')){
@@ -16,6 +16,14 @@ const Header = () => {
         } else {
             mobileMenu.classList.add('hidden');
         }
+    }
+
+    const handleAuthClick = () => {
+      if (isAuthenticated) {
+        logout();
+      } else {
+        setOpenLogin(true);
+      }
     }
 
     return (
@@ -51,10 +59,10 @@ const Header = () => {
                 data-aos-anchor="#example-anchor"
                 data-aos-offset="600"
                 data-aos-duration="600"
-                onClick={() => setOpenLogin(true)} 
+                onClick={handleAuthClick} 
                 className="hidden md:block bg-[#f49827] text-[#010101] py-3 px-8 rounded-full border-none
                  transition-all duration-500 hover:bg-white cursor-pointer z-50 font-antonio font-extrabold">
-                SIGNIN
+                {isAuthenticated ? 'LOGOUT' : 'SIGNIN'}
             </button>
 
             {/* Mobile Button */}
@@ -76,6 +84,13 @@ const Header = () => {
 
                     <a className="font-poppins w-fit text-base tracking-wider transition-colors hover:text-[#f49827] z-50 cursor-pointer"
                      href="#contact">Contact</a>
+
+                    <button 
+                      onClick={handleAuthClick}
+                      className="font-poppins w-fit text-base tracking-wider transition-colors hover:text-[#f49827] z-50 cursor-pointer text-left"
+                    >
+                      {isAuthenticated ? 'LOGOUT' : 'SIGNIN'}
+                    </button>
                 </nav>
             </div>
 

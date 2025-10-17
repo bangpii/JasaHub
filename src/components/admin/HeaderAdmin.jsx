@@ -1,12 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "boxicons/css/boxicons.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useAuth } from "../../context/AuthContext";
 
 const HeaderAdmin = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const { user, logout } = useAuth();
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    setShowDropdown(false);
+  };
 
   return (
     <header
@@ -54,16 +63,70 @@ const HeaderAdmin = () => {
             />
           </div>
 
-          {/* Profile */}
-          <div
-            className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full 
-            bg-[#f49827] shadow-[0_0_8px_rgba(244,152,39,0.4)] cursor-pointer 
-            hover:scale-105 transition-transform duration-300"
-          >
-            <i className="bx bxs-user text-white text-xl sm:text-2xl"></i>
+          {/* Profile dengan Dropdown */}
+          <div className="relative">
+            <div
+              className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full 
+              bg-[#f49827] shadow-[0_0_8px_rgba(244,152,39,0.4)] cursor-pointer 
+              hover:scale-105 transition-transform duration-300"
+              onClick={() => setShowDropdown(!showDropdown)}
+            >
+              <i className="bx bxs-user text-white text-xl sm:text-2xl"></i>
+            </div>
+
+            {/* Dropdown Menu */}
+            {showDropdown && (
+              <div className="absolute right-0 top-12 mt-2 w-48 bg-[#0c0c0c] border border-[#f49827] rounded-lg shadow-xl z-50">
+                {/* Info User */}
+                <div className="px-4 py-3 border-b border-gray-700">
+                  <p className="text-white font-antonio text-sm font-semibold">
+                    {user?.namaLengkap || user?.username}
+                  </p>
+                  <p className="text-gray-400 text-xs mt-1">
+                    {user?.devisi || 'Admin'}
+                  </p>
+                </div>
+                
+                {/* Menu Items */}
+                <div className="py-1">
+                  <button
+                    className="flex items-center w-full px-4 py-2 text-sm text-white hover:bg-[#f49827] hover:text-black transition-colors"
+                    onClick={() => setShowDropdown(false)}
+                  >
+                    <i className="bx bx-cog text-lg mr-3"></i>
+                    Pengaturan
+                  </button>
+                  
+                  <button
+                    className="flex items-center w-full px-4 py-2 text-sm text-white hover:bg-[#f49827] hover:text-black transition-colors"
+                    onClick={() => setShowDropdown(false)}
+                  >
+                    <i className="bx bx-user text-lg mr-3"></i>
+                    Profil
+                  </button>
+                  
+                  {/* Logout Button */}
+                  <button
+                    className="flex items-center w-full px-4 py-2 text-sm text-red-400 hover:bg-red-600 hover:text-white transition-colors border-t border-gray-700 mt-1"
+                    onClick={handleLogout}
+                  >
+                    <i className="bx bx-log-out text-lg mr-3"></i>
+                    Logout
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Overlay untuk menutup dropdown ketika klik di luar */}
+      {showDropdown && (
+        <div 
+          className="fixed inset-0 z-40" 
+          onClick={() => setShowDropdown(false)}
+        />
+      )}
     </header>
   );
 };
